@@ -1,0 +1,44 @@
+# ML-Powered Honeypot Configuration
+elasticsearch:
+  host: localhost
+  port: 9200
+  index: honeypot-logs
+
+cowrie:
+  log_path: /var/log/cowrie/cowrie.json
+  config_path: /opt/cowrie/etc/cowrie.cfg
+  profiles:
+    minimal:
+      enabled_commands: ["ls", "pwd", "whoami"]
+      response_delay: 0.1
+      fake_files: []
+    standard:
+      enabled_commands: ["ls", "pwd", "whoami", "cat", "cd", "ps", "netstat"]
+      response_delay: 0.5
+      fake_files: ["passwd", "shadow"]
+    deception:
+      enabled_commands: ["ls", "pwd", "whoami", "cat", "cd", "ps", "netstat", "wget", "curl", "ssh"]
+      response_delay: 2.0
+      fake_files: ["passwd", "shadow", "id_rsa", "config", "database.conf"]
+
+ml:
+  model_path: models/threat_classifier.pkl
+  features:
+    - session_duration
+    - command_count
+    - unique_commands
+    - failed_logins
+    - suspicious_commands
+  thresholds:
+    scanner: 0.3
+    amateur: 0.7
+    advanced: 0.9
+
+adaptation:
+  check_interval: 60  # seconds
+  min_sessions: 5     # minimum sessions before adaptation
+  cooldown: 300       # seconds between adaptations
+
+monitoring:
+  dashboard_port: 5000
+  alert_email: admin@example.com

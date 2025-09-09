@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  ml-honeypot:
+    build: .
+    container_name: ml-honeypot
+    ports:
+      - "2222:2222"  # SSH honeypot
+      - "5000:5000"  # Dashboard
+      - "9200:9200"  # Elasticsearch
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./configs:/app/configs
+    environment:
+      - PYTHONPATH=/app/src
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # Optional: Separate Elasticsearch service
+  elasticsearch:
+    image: elasticsearch:8.8.0
+    container_name: honeypot-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9201:9200"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    restart: unless-stopped
+
+volumes:
+  elasticsearch_data:
