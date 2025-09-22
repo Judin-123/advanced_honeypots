@@ -525,7 +525,7 @@ def create_html_template():
 </body>
 </html>"""
     
-    with open(f"{template_dir}/dashboard.html", 'w') as f:
+    with open(f"{template_dir}/dashboard.html", 'w', encoding='utf-8') as f:
         f.write(html_content)
     
     print("✅ Dashboard HTML template created")

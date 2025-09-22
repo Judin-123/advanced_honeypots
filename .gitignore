@@ -1,0 +1,73 @@
+# Byte-compiled / compiled / dynamic files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Distribution / packaging
+build/
+dist/
+.eggs/
+*.egg-info/
+
+# Logs and runtime artifacts
+logs/
+*.log
+*.pid
+
+# Datasets and large data
+/data/
+/datasets/
+/MachineLearningCVE/
+*.zip
+*.pcap
+*.pcap_*
+
+# Trained models and artifacts
+trained_models/
+deployment_package/trained_models/
+models/
+*.pkl
+*.joblib
+*.onnx
+
+# Plots and generated images
+/plots/
+*.png
+*.jpg
+*.jpeg
+*.svg
+
+# Local environment and IDE
+*.swp
+*.swo
+.DS_Store
+*.tmp
+.vscode/
+.idea/
+
+# Docker, Compose overrides
+docker-compose.override.yml
+
+# Secrets and keys
+*.pem
+*.key
+*.crt
+*.env
+.env.*
+cloud-init.yaml
+oracle-key.pem
+
+# Node/npm (if any)
+node_modules/
+
+# Misc
+# Exclude any large CSVs not already under data/datasets
+*.csv
+# But keep small sample CSVs tracked under datasets/cicids2017/processed
+!datasets/cicids2017/processed/*.csv

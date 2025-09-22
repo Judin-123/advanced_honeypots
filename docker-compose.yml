@@ -7,35 +7,74 @@ services:
     ports:
       - "2222:2222"  # SSH honeypot
       - "5000:5000"  # Dashboard
-      - "9200:9200"  # Elasticsearch
     volumes:
       - ./logs:/app/logs
       - ./data:/app/data
       - ./models:/app/models
       - ./configs:/app/configs
+      - ./logstash/pipeline:/usr/share/logstash/pipeline
     environment:
       - PYTHONPATH=/app/src
+      - ELASTICSEARCH_HOST=elasticsearch
+      - LOGSTASH_HOST=logstash
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5000/api/status"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 60s
+    depends_on:
+      - elasticsearch
+      - logstash
+    networks:
+      - elk-network
 
-  # Optional: Separate Elasticsearch service
   elasticsearch:
-    image: elasticsearch:8.8.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.8.0
     container_name: honeypot-elasticsearch
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=false
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+      - ELASTIC_PASSWORD=changeme
     ports:
-      - "9201:9200"
+      - "9200:9200"
     volumes:
       - elasticsearch_data:/usr/share/elasticsearch/data
     restart: unless-stopped
+    networks:
+      - elk-network
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.8.0
+    container_name: honeypot-logstash
+    volumes:
+      - ./logstash/pipeline:/usr/share/logstash/pipeline
+      - ./logstash/config:/usr/share/logstash/config
+      - ./logs:/app/logs
+    environment:
+      - LS_JAVA_OPTS=-Xmx1g -Xms1g
+    ports:
+      - "5000:5000/tcp"
+      - "5000:5000/udp"
+      - "9600:9600"
+    depends_on:
+      - elasticsearch
+    restart: unless-stopped
+    networks:
+      - elk-network
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.8.0
+    container_name: honeypot-kibana
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+    restart: unless-stopped
+    networks:
+      - elk-network
 
 volumes:
   elasticsearch_data:
+
+networks:
+  elk-network:
+    driver: bridge

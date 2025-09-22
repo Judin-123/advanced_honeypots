@@ -28,12 +28,14 @@ class HoneypotDashboard:
         """Initialize Elasticsearch connection"""
         try:
             es_config = self.config.get("elasticsearch", {})
-            self.es_client = Elasticsearch([
-                {
+            # Use the newer Elasticsearch client format
+            self.es_client = Elasticsearch(
+                hosts=[{
                     'host': es_config.get('host', 'localhost'),
-                    'port': es_config.get('port', 9200)
-                }
-            ])
+                    'port': es_config.get('port', 9200),
+                    'scheme': 'http'
+                }]
+            )
             
             # Test connection
             if self.es_client.ping():
