@@ -1,0 +1,49 @@
+{
+  "index_patterns": ["honeypot-*"],
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0,
+    "index.refresh_interval": "5s",
+    "analysis": {
+      "analyzer": {
+        "honeypot_analyzer": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": ["lowercase", "asciifolding"]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "@timestamp": { "type": "date" },
+      "source_ip": { "type": "ip" },
+      "destination_ip": { "type": "ip" },
+      "username": { "type": "keyword" },
+      "password": { "type": "keyword" },
+      "command": { 
+        "type": "text",
+        "fields": {
+          "keyword": { "type": "keyword", "ignore_above": 256 }
+        }
+      },
+      "threat_level": { "type": "keyword" },
+      "event_type": { "type": "keyword" },
+      "bytes_sent": { "type": "long" },
+      "bytes_received": { "type": "long" },
+      "duration": { "type": "float" },
+      "geoip": {
+        "properties": {
+          "ip": { "type": "ip" },
+          "country_code2": { "type": "keyword" },
+          "country_name": { "type": "keyword" },
+          "city_name": { "type": "keyword" },
+          "location": { "type": "geo_point" }
+        }
+      },
+      "message": { "type": "text" },
+      "tags": { "type": "keyword" },
+      "timestamp": { "type": "date" }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "delay": 2.0,
+  "fake_errors": true,
+  "misleading_banners": true,
+  "fake_vulnerabilities": true
+}

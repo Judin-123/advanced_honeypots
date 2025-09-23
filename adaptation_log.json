@@ -1,0 +1,9 @@
+[
+  {
+    "timestamp": "2025-09-23T12:45:11.210447",
+    "old_profile": "standard",
+    "new_profile": "deceptive",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  }
+]

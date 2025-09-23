@@ -1,0 +1,80 @@
+{
+  "/etc/passwd": {
+    "size": 4945,
+    "modified": "2025-09-23T12:45:11.206183",
+    "content_type": "user_accounts",
+    "honeypot_trap": true
+  },
+  "/etc/shadow": {
+    "size": 4220,
+    "modified": "2025-09-23T12:45:11.206207",
+    "content_type": "system_file",
+    "honeypot_trap": true
+  },
+  "/home/admin/.ssh/id_rsa": {
+    "size": 3894,
+    "modified": "2025-09-23T12:45:11.206216",
+    "content_type": "ssh_keys",
+    "honeypot_trap": true
+  },
+  "/var/log/auth.log": {
+    "size": 921,
+    "modified": "2025-09-23T12:45:11.206220",
+    "content_type": "system_file",
+    "honeypot_trap": true
+  },
+  "/root/.bash_history": {
+    "size": 561,
+    "modified": "2025-09-23T12:45:11.206225",
+    "content_type": "system_file",
+    "honeypot_trap": true
+  },
+  "/home/admin/passwords.txt": {
+    "size": 3039,
+    "modified": "2025-09-23T12:45:11.206230",
+    "content_type": "credentials",
+    "honeypot_trap": true
+  },
+  "/var/www/config.php": {
+    "size": 2720,
+    "modified": "2025-09-23T12:45:11.206236",
+    "content_type": "system_file",
+    "honeypot_trap": true
+  },
+  "/root/backup.sql": {
+    "size": 4787,
+    "modified": "2025-09-23T12:45:11.206240",
+    "content_type": "database",
+    "honeypot_trap": true
+  },
+  "/etc/mysql/my.cnf": {
+    "size": 5398,
+    "modified": "2025-09-23T12:45:11.206245",
+    "content_type": "system_file",
+    "honeypot_trap": true
+  },
+  "/home/admin/bitcoin_wallet.dat": {
+    "size": 1640,
+    "modified": "2025-09-23T12:45:11.206249",
+    "content_type": "system_file",
+    "honeypot_trap": true
+  },
+  "/root/company_secrets.txt": {
+    "size": 3046,
+    "modified": "2025-09-23T12:45:11.206253",
+    "content_type": "system_file",
+    "honeypot_trap": true
+  },
+  "/var/backups/database_dump.sql": {
+    "size": 1510,
+    "modified": "2025-09-23T12:45:11.206259",
+    "content_type": "database",
+    "honeypot_trap": true
+  },
+  "/etc/ssl/private/server.key": {
+    "size": 6731,
+    "modified": "2025-09-23T12:45:11.206263",
+    "content_type": "system_file",
+    "honeypot_trap": true
+  }
+}

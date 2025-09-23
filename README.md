@@ -4,7 +4,17 @@ A complete, production-ready adaptive honeypot system with machine learning thre
 
 ## 🏗️ System Architecture
 
-This system implements a comprehensive ML-powered honeypot with the following components:
+This system implements a comprehensive ML-powered honeypot with the following components and deployment options:
+
+### ☁️ Deployment Architecture
+- **Cloud Deployment**: Oracle Cloud Infrastructure (OCI) for production
+  - **Compute Instance**: Optimized for security workloads
+  - **Networking**: Secure VCN with proper security lists
+  - **Storage**: Block storage for logs and models
+  - **Public Access**: Accessible via public IP with proper security controls
+- **Local Development**: For testing and development
+  - **Docker Support**: Containerized deployment
+  - **Localhost Access**: For development and testing
 
 ### 📊 Data Pipeline
 - **Distributed Honeypots**: SSH/Telnet (Cowrie) + Malware Catcher (Dionaea)
@@ -30,6 +40,32 @@ This system implements a comprehensive ML-powered honeypot with the following co
 - **Real-time Charts**: Live threat timelines and geographic mapping
 - **Performance Metrics**: ML model accuracy and system health monitoring
 - **Alert Management**: Active incident tracking and response
+
+## 🚀 Deployment Options
+
+### ☁️ Oracle Cloud Infrastructure (OCI) Deployment
+- **Instance Type**: Flexible VM.Standard.E3.Flex or VM.Standard.E4.Flex
+- **OS**: Oracle Linux 8 or Ubuntu 20.04 LTS
+- **Networking**: 
+  - Public IP with proper security lists
+  - Recommended: Configure VCN with public/private subnets
+  - Required Ports: 22 (SSH), 80/443 (HTTP/HTTPS), 5000 (Dashboard)
+- **Storage**:
+  - Block Volume for persistent storage
+  - Object Storage for logs and backups
+- **Security**:
+  - Configure security lists to restrict access
+  - Use OCI Web Application Firewall (WAF)
+  - Enable Vault for secrets management
+
+### 🖥️ Local Development
+- **Requirements**:
+  - Python 3.7+
+  - 4GB+ RAM
+  - 2GB+ disk space
+- **Docker Support**:
+  - Containerized deployment available
+  - Easy setup with docker-compose
 
 ## 🚀 Quick Start
 

