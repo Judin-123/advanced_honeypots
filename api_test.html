@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard API Test</title>
+</head>
+<body>
+    <h1>Dashboard API Test</h1>
+    <div id="results"></div>
+
+    <script>
+        async function testAPI(endpoint, name) {
+            try {
+                const response = await fetch(`http://localhost:5002${endpoint}`);
+                const data = await response.json();
+                return { name, success: true, data, status: response.status };
+            } catch (error) {
+                return { name, success: false, error: error.message, status: 0 };
+            }
+        }
+
+        async function runTests() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<p>Testing API endpoints...</p>';
+
+            const endpoints = [
+                { path: '/api/real-stats', name: 'Real Stats' },
+                { path: '/api/adaptive-status', name: 'Adaptive Status' },
+                { path: '/api/real-threats', name: 'Real Threats' },
+                { path: '/api/real-sessions', name: 'Real Sessions' }
+            ];
+
+            for (const endpoint of endpoints) {
+                const result = await testAPI(endpoint.path, endpoint.name);
+                resultsDiv.innerHTML += `
+                    <h3>${result.name}</h3>
+                    <p>Status: ${result.success ? '✅ Success' : '❌ Failed'} (${result.status})</p>
+                    ${result.success ?
+                        `<p>Data: ${JSON.stringify(result.data, null, 2)}</p>` :
+                        `<p>Error: ${result.error}</p>`
+                    }
+                    <hr>
+                `;
+            }
+
+            // Test profile switching
+            resultsDiv.innerHTML += '<h3>Profile Switching Test</h3>';
+            const profileResult = await testAPI('/api/switch-profile/aggressive', 'Profile Switch');
+            resultsDiv.innerHTML += `
+                <p>Status: ${profileResult.success ? '✅ Success' : '❌ Failed'} (${profileResult.status})</p>
+                ${profileResult.success ?
+                    `<p>Data: ${JSON.stringify(profileResult.data, null, 2)}</p>` :
+                    `<p>Error: ${profileResult.error}</p>`
+                }
+            `;
+        }
+
+        // Run tests when page loads
+        runTests();
+    </script>
+</body>
+</html>

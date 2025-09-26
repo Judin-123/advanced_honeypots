@@ -64,6 +64,50 @@ class AdaptiveHoneypotSystem:
         # Start adaptive monitoring
         self.start_adaptive_monitoring()
     
+    def adapt_honeypot_behavior(self):
+        """
+        Adapt the honeypot behavior based on current threat level and patterns
+        
+        Returns:
+            bool: True if adaptation was successful, False otherwise
+        """
+        try:
+            if not hasattr(self, 'session_history') or not self.session_history:
+                logger.info("No session history available for behavior adaptation")
+                return False
+                
+            # Get recent threat level (last 100 sessions or all if less than 100)
+            recent_sessions = list(self.session_history)[-100:]
+            recent_threats = [s for s in recent_sessions 
+                           if s.get('threat_level', 0) > self.threat_threshold]
+            
+            threat_count = len(recent_threats)
+            total_sessions = len(recent_sessions) or 1
+            threat_ratio = threat_count / total_sessions
+            
+            logger.info(f"🔍 Threat analysis - Count: {threat_count}/{total_sessions} (Ratio: {threat_ratio:.2f})")
+            
+            # Determine appropriate profile based on threat level
+            if threat_ratio > 0.5:  # High threat level
+                new_profile = 'deceptive'
+            elif threat_ratio > 0.3:  # Elevated threat
+                new_profile = 'aggressive'
+            elif threat_ratio > 0.1:  # Normal operations
+                new_profile = 'standard'
+            else:  # Low threat
+                new_profile = 'minimal'
+                
+            # Apply profile if different
+            if new_profile != self.current_profile:
+                logger.info(f"🔄 Switching from {self.current_profile} to {new_profile} profile")
+                return self.switch_profile(new_profile)
+                
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error in adapt_honeypot_behavior: {str(e)}", exc_info=True)
+            return False
+            
     def load_models(self):
         """Load ML models for threat analysis"""
         try:

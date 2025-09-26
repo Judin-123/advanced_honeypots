@@ -5,5 +5,166 @@
     "new_profile": "deceptive",
     "reason": "Adaptive response to attack patterns",
     "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-25T11:08:44.686229",
+    "old_profile": "standard",
+    "new_profile": "minimal",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-25T11:15:41.354033",
+    "old_profile": "standard",
+    "new_profile": "minimal",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-25T11:17:58.067614",
+    "old_profile": "standard",
+    "new_profile": "minimal",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-25T12:38:26.052934",
+    "old_profile": "standard",
+    "new_profile": "aggressive",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-25T12:38:28.049657",
+    "old_profile": "aggressive",
+    "new_profile": "deceptive",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-25T12:38:29.492497",
+    "old_profile": "deceptive",
+    "new_profile": "minimal",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-25T17:49:05.658682",
+    "old_profile": "standard",
+    "new_profile": "minimal",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-25T17:49:07.135271",
+    "old_profile": "minimal",
+    "new_profile": "aggressive",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-25T17:49:08.090656",
+    "old_profile": "aggressive",
+    "new_profile": "deceptive",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-26T21:17:05.301128",
+    "old_profile": "deceptive",
+    "new_profile": "aggressive",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-26T21:17:06.461278",
+    "old_profile": "aggressive",
+    "new_profile": "deceptive",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-26T21:22:30.339885",
+    "old_profile": "standard",
+    "new_profile": "aggressive",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-26T21:22:31.509205",
+    "old_profile": "aggressive",
+    "new_profile": "deceptive",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-26T21:26:15.454996",
+    "old_profile": "standard",
+    "new_profile": "aggressive",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-26T21:28:48.553756",
+    "old_profile": "standard",
+    "new_profile": "aggressive",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-26T21:28:49.436643",
+    "old_profile": "aggressive",
+    "new_profile": "deceptive",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-26T21:28:50.235335",
+    "old_profile": "deceptive",
+    "new_profile": "minimal",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-26T21:30:51.325245",
+    "old_profile": "minimal",
+    "new_profile": "aggressive",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-26T21:30:51.981616",
+    "old_profile": "aggressive",
+    "new_profile": "deceptive",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-26T21:31:00.923079",
+    "old_profile": "deceptive",
+    "new_profile": "minimal",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-26T21:31:01.630972",
+    "old_profile": "minimal",
+    "new_profile": "standard",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-26T21:31:02.082464",
+    "old_profile": "standard",
+    "new_profile": "aggressive",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
+  },
+  {
+    "timestamp": "2025-09-26T21:31:02.517904",
+    "old_profile": "aggressive",
+    "new_profile": "deceptive",
+    "reason": "Adaptive response to attack patterns",
+    "attack_count": 0
   }
 ]

@@ -1,79 +1,79 @@
 {
   "/etc/passwd": {
-    "size": 4945,
-    "modified": "2025-09-23T12:45:11.206183",
+    "size": 2632,
+    "modified": "2025-09-26T21:31:02.516675",
     "content_type": "user_accounts",
     "honeypot_trap": true
   },
   "/etc/shadow": {
-    "size": 4220,
-    "modified": "2025-09-23T12:45:11.206207",
+    "size": 8955,
+    "modified": "2025-09-26T21:31:02.516692",
     "content_type": "system_file",
     "honeypot_trap": true
   },
   "/home/admin/.ssh/id_rsa": {
-    "size": 3894,
-    "modified": "2025-09-23T12:45:11.206216",
+    "size": 4434,
+    "modified": "2025-09-26T21:31:02.516698",
     "content_type": "ssh_keys",
     "honeypot_trap": true
   },
   "/var/log/auth.log": {
-    "size": 921,
-    "modified": "2025-09-23T12:45:11.206220",
+    "size": 9673,
+    "modified": "2025-09-26T21:31:02.516703",
     "content_type": "system_file",
     "honeypot_trap": true
   },
   "/root/.bash_history": {
-    "size": 561,
-    "modified": "2025-09-23T12:45:11.206225",
+    "size": 1355,
+    "modified": "2025-09-26T21:31:02.516708",
     "content_type": "system_file",
     "honeypot_trap": true
   },
   "/home/admin/passwords.txt": {
-    "size": 3039,
-    "modified": "2025-09-23T12:45:11.206230",
+    "size": 7576,
+    "modified": "2025-09-26T21:31:02.516713",
     "content_type": "credentials",
     "honeypot_trap": true
   },
   "/var/www/config.php": {
-    "size": 2720,
-    "modified": "2025-09-23T12:45:11.206236",
+    "size": 7948,
+    "modified": "2025-09-26T21:31:02.516719",
     "content_type": "system_file",
     "honeypot_trap": true
   },
   "/root/backup.sql": {
-    "size": 4787,
-    "modified": "2025-09-23T12:45:11.206240",
+    "size": 3744,
+    "modified": "2025-09-26T21:31:02.516724",
     "content_type": "database",
     "honeypot_trap": true
   },
   "/etc/mysql/my.cnf": {
-    "size": 5398,
-    "modified": "2025-09-23T12:45:11.206245",
+    "size": 6375,
+    "modified": "2025-09-26T21:31:02.516729",
     "content_type": "system_file",
     "honeypot_trap": true
   },
   "/home/admin/bitcoin_wallet.dat": {
-    "size": 1640,
-    "modified": "2025-09-23T12:45:11.206249",
+    "size": 9360,
+    "modified": "2025-09-26T21:31:02.516734",
     "content_type": "system_file",
     "honeypot_trap": true
   },
   "/root/company_secrets.txt": {
-    "size": 3046,
-    "modified": "2025-09-23T12:45:11.206253",
+    "size": 266,
+    "modified": "2025-09-26T21:31:02.516739",
     "content_type": "system_file",
     "honeypot_trap": true
   },
   "/var/backups/database_dump.sql": {
-    "size": 1510,
-    "modified": "2025-09-23T12:45:11.206259",
+    "size": 5725,
+    "modified": "2025-09-26T21:31:02.516745",
     "content_type": "database",
     "honeypot_trap": true
   },
   "/etc/ssl/private/server.key": {
-    "size": 6731,
-    "modified": "2025-09-23T12:45:11.206263",
+    "size": 3898,
+    "modified": "2025-09-26T21:31:02.516750",
     "content_type": "system_file",
     "honeypot_trap": true
   }

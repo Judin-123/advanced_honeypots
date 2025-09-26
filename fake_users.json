@@ -1,0 +1,11 @@
+{
+  "passwd_entries": [
+    "root:x:0:0:root:/root:/bin/bash",
+    "admin:x:1000:1000:Admin User:/home/admin:/bin/bash",
+    "honeypot:x:1001:1001:Honeypot Trap:/home/honeypot:/bin/bash"
+  ],
+  "shadow_entries": [
+    "root:$6$fake_salt$fake_hash:18000:0:99999:7:::",
+    "admin:$6$fake_salt$fake_hash:18000:0:99999:7:::"
+  ]
+}

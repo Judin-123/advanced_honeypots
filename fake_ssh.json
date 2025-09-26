@@ -1,0 +1,5 @@
+{
+  "private_key": "-----BEGIN FAKE RSA PRIVATE KEY-----\nThis is a honeypot trap\n-----END FAKE RSA PRIVATE KEY-----",
+  "authorized_keys": "ssh-rsa FAKE_KEY_DATA honeypot@trap",
+  "known_hosts": "192.168.1.1 ssh-rsa FAKE_HOST_KEY"
+}

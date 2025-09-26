@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password_hash": "fake_hash_123"
+    },
+    {
+      "id": 2,
+      "username": "root",
+      "password_hash": "fake_hash_456"
+    }
+  ],
+  "config": {
+    "db_host": "192.168.1.100",
+    "db_user": "honeypot_trap",
+    "db_pass": "this_is_fake"
+  }
+}
